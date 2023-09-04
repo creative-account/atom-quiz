@@ -281,15 +281,19 @@ function displayScore(from, to) {
     while(container.firstChild){
         container.removeChild(container.firstChild);
     };
-    var box = document.createElement('div');
-    box.setAttribute('class', 'box has-text-center is-size-2');
+    var box1 = document.createElement('div');
+    box1.setAttribute('class', 'box has-text-center is-size-2');
 
     // score 配列から true の数を調べる
     var trueCount = score.filter(function(item) {
         return item === true;
     }).length;
-    box.textContent = trueCount + '問正解';
-    container.appendChild(box);
+    box1.textContent = trueCount + '問正解';
+    container.appendChild(box1);
+
+    var box2 = document.createElement('div');
+    box2.setAttribute('class', 'box');
+    container.appendChild(box2);
 
     //テーブルを作成
     var table = document.createElement('table');
@@ -305,7 +309,7 @@ function displayScore(from, to) {
         headerRow.appendChild(headerCell);
     };
 
-    container.appendChild(table);
+    box2.appendChild(table);
     table.appendChild(headerRow);
 
     // スコア情報をテーブルに追加
