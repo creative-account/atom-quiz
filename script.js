@@ -341,15 +341,19 @@ function displayScore(from, to) {
     score = [];
     correct = null;
 
+    var box3 = document.createElement('div');
+    box3.setAttribute('class', 'box is-flex is-justify-content-space-around is-flex-warp-warp');
+    container.appendChild(box3);
+
     //リトライボタンと問題選択ボタンの作成
     var retry_button = document.createElement('button');
-    retry_button.setAttribute('class', 'button is-primary is-large is-fullwidth mb-4');
+    retry_button.setAttribute('class', 'button is-primary is-large is-justify-content-space-around is-flex-warp-warp');
     retry_button.setAttribute('onclick', 'generateNewQuestion(' + from + ',' + to + ')');
     retry_button.textContent = 'リトライ';
     var select_button = document.createElement('button');
-    select_button.setAttribute('class', 'button is-primary is-large is-fullwidth mb-4');
+    select_button.setAttribute('class', 'button is-primary is-large is-justify-content-space-around is-flex-warp-warp');
     select_button.setAttribute('onclick', 'start()');
     select_button.textContent = '問題選択へ';
-    container.appendChild(retry_button);
-    container.appendChild(select_button);
+    box3.appendChild(retry_button);
+    box3.appendChild(select_button);
 };
