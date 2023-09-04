@@ -328,6 +328,12 @@ function displayScore(from, to) {
         cells[2].textContent = atom_list[userCorrect[r]-1][to];
         cells[3].textContent = score[r].toString();
 
+        if (score[r] == false) {
+            cells[3].setAttribute('class', 'has-text-danger-dark');
+        }else if (score[r] == true) {
+            cells[3].setAttribute('class', 'has-text-primary');
+        };
+
         // セルを行に追加
         for (var c = 0; c < 4; c++) {
             row.appendChild(cells[c]);
