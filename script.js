@@ -188,7 +188,8 @@ function generateNewQuestion(from, to, element) {
     var box = document.createElement('div');
     box.setAttribute('class', 'box has-text-center is-size-2');
     var level = document.createElement('div');
-    level.setAttribute('class', 'is-flex is-justify-content-space-around is-flex-wrap-wrap');
+    level.setAttribute('class', 'is-flex is-justify-content-space-around is-flex-wrap-nowrap');
+    level.setAttribute('id', 'level');
     container.appendChild(box);
     container.appendChild(level);
 
@@ -264,12 +265,20 @@ function generateNewQuestion(from, to, element) {
     //ボタンを作成
     for (i = 0; i <= 2; i++) {
         var answerButton = document.createElement('button');
-        answerButton.setAttribute('class', 'button is-large is-primary is-justify-content-space-around is-flex-wrap-wrap');
+        answerButton.setAttribute('class', 'button is-large is-primary');
         answerButton.setAttribute('id', 'medium_' + i);
         answerButton.setAttribute('onclick', 'generateNewQuestion('+ from + ', ' + to + ',' + 'this' +  ')');
         answerButton.textContent = atom_list[randoms[i]][to];
         level.appendChild(answerButton);
     };
+
+    var device = navigator.userAgent.match(/Android|iPhone/);
+    if (device != null){
+        document.querySelector('#level').removeAttribute('class');
+        for (let i = 0; i <= 2; i++) {
+        document.querySelector('#medium_' + i).setAttribute('class', 'button is-large is-primary is-fullwidth mb-4');
+        }
+    }
 };
 
 
