@@ -348,7 +348,7 @@ function displayScore(from, to) {
     correct = null;
 
     var box3 = document.createElement('div');
-    box3.setAttribute('class', 'box is-flex is-justify-content-space-around is-flex-warp-warp');
+    box3.setAttribute('class', 'is-flex is-justify-content-space-around is-flex-warp-warp');
     container.appendChild(box3);
 
     //リトライボタンと問題選択ボタンの作成
