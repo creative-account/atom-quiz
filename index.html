@@ -67,8 +67,14 @@
         <!-- Hero footer: will stick at the bottom -->
       </section>
       <section class="section">
-        <div class="container has-text-centered" id="container">
-            <button class="button is-rounded is-primary is-large" id="start" onclick="start()">始める</button>
+        <div class="container" id="container">
+            <form action="" method="post">
+              <label class="label">ニックネーム</label>
+              <input class="input is-primary" type="text" placeholder="タロウ" id="nickname">
+            </form>
+            <div class="has-text-centered">
+              <button class="button is-rounded is-primary is-large mt-4" id="start" onclick="start()">始める</button>
+            </div>
         </div>
       </section>
       <script src="https://creative-account.github.io/homepage/script.js"></script>

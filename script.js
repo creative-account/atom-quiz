@@ -135,45 +135,55 @@ function start() {
 
     //子要素を全削除
     const start = document.querySelector("#start");
-    while(container.firstChild){
-        container.removeChild(container.firstChild);
-    };
+    const input = document.querySelector('#nickname');
 
-    //ボタンの生成
-    for (var i = 0; i <= 5; i++) {
-        var button = document.createElement('button');
-        button.setAttribute('class', 'button is-primary is-large is-fullwidth mb-4');
-        switch (i) {
-            case 0:
-                button.textContent = '番号 → 記号';
-                button.setAttribute('onclick', 'generateNewQuestion(0, 1)');
-                break;
-            case 1:
-                button.textContent = '番号 → 名前';
-                button.setAttribute('onclick', 'generateNewQuestion(0, 2)');
-                break;
-            case 2:
-                button.textContent = '記号 → 番号';
-                button.setAttribute('onclick', 'generateNewQuestion(1, 0)');
-                break;
-            case 3:
-                button.textContent = '記号 → 名前';
-                button.setAttribute('onclick', 'generateNewQuestion(1, 2)');
-                break;
-            case 4:
-                button.textContent = '名前 → 番号';
-                button.setAttribute('onclick', 'generateNewQuestion(2, 0)');
-                break;
-            case 5:
-                button.textContent = '名前 → 記号';
-                button.setAttribute('onclick', 'generateNewQuestion(2, 1)');
-                break;
+    if(input.value == "") {
+        var errorMessage = document.createElement('p');
+        errorMessage.textContent = "ニックネームを入力して下さい";
+        container.insertBefore(errorMessage, input);
+    }else{
+        while(container.firstChild){
+            container.removeChild(container.firstChild);
         };
 
-        //ボタンの追加、button変数の初期化
-        container.appendChild(button);
-        button = null;
-    };
+        //ボタンの生成
+        for (var i = 0; i <= 5; i++) {
+            var button = document.createElement('button');
+            button.setAttribute('class', 'button is-primary is-large is-fullwidth mb-4');
+            switch (i) {
+                case 0:
+                    button.textContent = '番号 → 記号';
+                    button.setAttribute('onclick', 'generateNewQuestion(0, 1)');
+                    break;
+                case 1:
+                    button.textContent = '番号 → 名前';
+                    button.setAttribute('onclick', 'generateNewQuestion(0, 2)');
+                    break;
+                case 2:
+                    button.textContent = '記号 → 番号';
+                    button.setAttribute('onclick', 'generateNewQuestion(1, 0)');
+                    break;
+                case 3:
+                    button.textContent = '記号 → 名前';
+                    button.setAttribute('onclick', 'generateNewQuestion(1, 2)');
+                    break;
+                case 4:
+                    button.textContent = '名前 → 番号';
+                    button.setAttribute('onclick', 'generateNewQuestion(2, 0)');
+                    break;
+                case 5:
+                    button.textContent = '名前 → 記号';
+                    button.setAttribute('onclick', 'generateNewQuestion(2, 1)');
+                    break;
+            };
+
+            //ボタンの追加、button変数の初期化
+            container.appendChild(button);
+            button = null;
+        };
+    }
+
+
 };
 
 
