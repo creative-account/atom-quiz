@@ -127,20 +127,29 @@ var allCorrect = [];
 var userCorrect = [];
 var randoms = [];
 var score = [];
+var errorShow = false;
+var nickname = null;
 
 
 
 //始めるボタンが押された時の処理
-function start() {
+function start(isRetry) {
+    console.warn(typeof isRetry);
 
     //子要素を全削除
     const start = document.querySelector("#start");
-    const input = document.querySelector('#nickname');
-
-    if(input.value == "") {
-        var errorMessage = document.createElement('p');
-        errorMessage.textContent = "ニックネームを入力して下さい";
-        container.insertBefore(errorMessage, input);
+    
+    if(isRetry == false) {
+        const input = document.querySelector('#nickname');
+        const nickname = input.value;
+        if (nickname == "") {
+            if (errorShow == false) {
+                var errorMessage = document.createElement('p');
+                errorMessage.textContent = "ニックネームを入力して下さい";
+                input.parentNode.insertBefore(errorMessage, input.nextSibling);
+                errorShow = true;
+            }
+        }
     }else{
         while(container.firstChild){
             container.removeChild(container.firstChild);
@@ -215,7 +224,7 @@ function generateNewQuestion(from, to, element) {
         };
     };
 
-    if (userCorrect.length >= 20) {
+    if (userCorrect.length >= 10) {
 
         //正解とユーザーの回答を比べてtrueかfalseを返す
         for (let l = 0; l < userCorrect.length; l++) {
@@ -377,7 +386,7 @@ function displayScore(from, to) {
     retry_button.textContent = 'リトライ';
     var select_button = document.createElement('button');
     select_button.setAttribute('class', 'button is-primary is-large is-justify-content-space-around is-flex-warp-warp');
-    select_button.setAttribute('onclick', 'start()');
+    select_button.setAttribute('onclick', 'start(true)');
     select_button.textContent = '問題選択へ';
     box3.appendChild(retry_button);
     box3.appendChild(select_button);
