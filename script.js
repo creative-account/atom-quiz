@@ -1,124 +1,4 @@
-//元素の色々をまとめた表
-const atom_list = [
-    [1,"H","水素"],
-    [2,"He","ヘリウム"],
-    [3,"Li","リチウム"],
-    [4,"Be","ベリリウム"],
-    [5,"B","ホウ素"],
-    [6,"C","炭素"],
-    [7,"N","窒素"],
-    [8,"O","酸素"],
-    [9,"F","フッ素"],
-    [10,"Ne","ネオン"],
-    [11,"Na","ナトリウム"],
-    [12,"Mg","マグネシウム"],
-    [13,"Al","アルミニウム"],
-    [14,"Si","ケイ素"],
-    [15,"P","リン"],
-    [16,"S","硫黄"],
-    [17,"Cl","塩素"],
-    [18,"Ar","アルゴン"],
-    [19,"K","カリウム"],
-    [20,"Ca","カルシウム"],
-    [21,"Sc","スカンジウム"],
-    [22,"Ti","チタン"],
-    [23,"V","バナジウム"],
-    [24,"Cr","クロム"],
-    [25,"Mn","マンガン"],
-    [26,"Fe","鉄"],
-    [27,"Co","コバルト"],
-    [28,"Ni","ニッケル"],
-    [29,"Cu","銅"],
-    [30,"Zn","亜鉛"],
-    [31,"Ga","ガリウム"],
-    [32,"Ge","ゲルマニウム"],
-    [33,"As","ヒ素"],
-    [34,"Se","セレン"],
-    [35,"Br","臭素"],
-    [36,"Kr","クリプトン"],
-    [37,"Rb","ルビジウム"],
-    [38,"Sr","ストロンチウム"],
-    [39,"Y","イットリウム"],
-    [40,"Zr","ジルコニウム"],
-    [41,"Nb","ニオブ"],
-    [42,"Mo","モリブデン"],
-    [43,"Tc","テクネチウム"],
-    [44,"Ru","ルテニウム"],
-    [45,"Rh","ロジウム"],
-    [46,"Pd","パラジウム"],
-    [47,"Ag","銀"],
-    [48,"Cd","カドミウム"],
-    [49,"In","インジウム"],
-    [50,"Sn","スズ"],
-    [51,"Sb","アンチモン"],
-    [52,"Te","テルル"],
-    [53,"I","ヨウ素"],
-    [54,"Xe","キセノン"],
-    [55,"Cs","セシウム"],
-    [56,"Ba","バリウム"],
-    [57,"La","ランタン"],
-    [58,"Ce","セリウム"],
-    [59,"Pr","プラセオジム"],
-    [60,"Nd","ネオジム"],
-    [61,"Pm","プロメチウム"],
-    [62,"Sm","サマリウム"],
-    [63,"Eu","ユウロピウム"],
-    [64,"Gd","ガドリニウム"],
-    [65,"Tb","テルビウム"],
-    [66,"Dy","ジスプロシウム"],
-    [67,"Ho","ホルミウム"],
-    [68,"Er","エルビウム"],
-    [69,"Tm","ツリウム"],
-    [70,"Yb","イッテルビウム"],
-    [71,"Lu","ルテチウム"],
-    [72,"Hf","ハフニウム"],
-    [73,"Ta","タンタル"],
-    [74,"W","タングステン"],
-    [75,"Re","レニウム"],
-    [76,"Os","オスミウム"],
-    [77,"Ir","イリジウム"],
-    [78,"Pt","白金"],
-    [79,"Au","金"],
-    [80,"Hg","水銀"],
-    [81,"Tl","タリウム"],
-    [82,"Pb","鉛"],
-    [83,"Bi","ビスマス"],
-    [84,"Po","ポロニウム"],
-    [85,"At","アスタチン"],
-    [86,"Rn","ラドン"],
-    [87,"Fr","フランシウム"],
-    [88,"Ra","ラジウム"],
-    [89,"Ac","アクチニウム"],
-    [90,"Th","トリウム"],
-    [91,"Pa","プロトアクチニウム"],
-    [92,"U","ウラン"],
-    [93,"Np","ネプツニウム"],
-    [94,"Pu","プルトニウム"],
-    [95,"Am","アメリシウム"],
-    [96,"Cm","キュリウム"],
-    [97,"Bk","バークリウム"],
-    [98,"Cf","カリホルニウム"],
-    [99,"Es","アインスタイニウム"],
-    [100,"Fm","フェルミウム"],
-    [101,"Md","メンデレビウム"],
-    [102,"No","ノーベリウム"],
-    [103,"Lr","ローレンシウム"],
-    [104,"Rf","ラザホージウム"],
-    [105,"Db","ドブニウム"],
-    [106,"Sg","シーボーギウム"],
-    [107,"Bh","ボーリウム"],
-    [108,"Hs","ハッシウム"],
-    [109,"Mt","マイトネリウム"],
-    [110,"Ds","ダームスタチウム"],
-    [111,"Rg","レントゲニウム"],
-    [112,"Cn","コペルニシウム"],
-    [113,"Nh","ニホニウム"],
-    [114,"Fl","フレロビウム"],
-    [115,"Mc","モスコビウム"],
-    [116,"Lv","リバモリウム"],
-    [117,"Ts","テネシン"],
-    [118,"Og","オガネソン"]
-];
+import { elements_list } from "./data.js";
 
 //変数定義
 const container = document.querySelector("#container");
@@ -128,53 +8,31 @@ var userCorrect = [];
 var randoms = [];
 var score = [];
 
-
+console,console.log(elements_list);
 
 //始めるボタンが押された時の処理
 function start() {
+    const buttonConfig = [
+        { text: '番号 → 記号', click: () => generateNewQuestion(0, 1) },
+        { text: '番号 → 名前', click: () => generateNewQuestion(0, 2) },
+        { text: '記号 → 番号', click: () => generateNewQuestion(1, 0) },
+        { text: '記号 → 名前', click: () => generateNewQuestion(1, 2) },
+        { text: '名前 → 番号', click: () => generateNewQuestion(2, 0) },
+        { text: '名前 → 記号', click: () => generateNewQuestion(2, 1) }
+    ];
 
-    //子要素を全削除
-    const start = document.querySelector("#start");
-    while(container.firstChild){
-        container.removeChild(container.firstChild);
-    };
+    const container = document.querySelector("#start");
+    container.innerHTML = ''; // 子要素を全削除
 
-    //ボタンの生成
-    for (var i = 0; i <= 5; i++) {
-        var button = document.createElement('button');
+    buttonConfig.forEach(config => {
+        const button = document.createElement('button');
         button.setAttribute('class', 'button is-primary is-large is-fullwidth mb-4');
-        switch (i) {
-            case 0:
-                button.textContent = '番号 → 記号';
-                button.setAttribute('onclick', 'generateNewQuestion(0, 1)');
-                break;
-            case 1:
-                button.textContent = '番号 → 名前';
-                button.setAttribute('onclick', 'generateNewQuestion(0, 2)');
-                break;
-            case 2:
-                button.textContent = '記号 → 番号';
-                button.setAttribute('onclick', 'generateNewQuestion(1, 0)');
-                break;
-            case 3:
-                button.textContent = '記号 → 名前';
-                button.setAttribute('onclick', 'generateNewQuestion(1, 2)');
-                break;
-            case 4:
-                button.textContent = '名前 → 番号';
-                button.setAttribute('onclick', 'generateNewQuestion(2, 0)');
-                break;
-            case 5:
-                button.textContent = '名前 → 記号';
-                button.setAttribute('onclick', 'generateNewQuestion(2, 1)');
-                break;
-        };
-
-        //ボタンの追加、button変数の初期化
+        button.textContent = config.text;
+        button.addEventListener('click', config.click);
         container.appendChild(button);
-        button = null;
-    };
-};
+    });
+}
+
 
 
 
@@ -201,7 +59,7 @@ function generateNewQuestion(from, to, element) {
         // 正規表現を使用して数字部分を取得し、数値型に変換
         numericPart = parseInt(attributeValue.match(/\d+/)[0]);
         if (randoms.length == 3){
-            userCorrect.push(atom_list[randoms[numericPart]][0]);
+            userCorrect.push(elements_list[randoms[numericPart]][0]);
         };
     };
 
@@ -234,8 +92,8 @@ function generateNewQuestion(from, to, element) {
     };
 
     //ランダムに正解の元素を選択
-    correct = atom_list[randoms[0]][from];
-    allCorrect.push(atom_list[randoms[0]][0]);
+    correct = elements_list[randoms[0]][from];
+    allCorrect.push(elements_list[randoms[0]][0]);
 
     //変換対象からメッセージを決定
     switch (from) {
@@ -268,7 +126,7 @@ function generateNewQuestion(from, to, element) {
         answerButton.setAttribute('class', 'button is-large is-primary');
         answerButton.setAttribute('id', 'medium_' + i);
         answerButton.setAttribute('onclick', 'generateNewQuestion('+ from + ', ' + to + ',' + 'this' +  ')');
-        answerButton.textContent = atom_list[randoms[i]][to];
+        answerButton.textContent = elements_list[randoms[i]][to];
         level.appendChild(answerButton);
     };
 
@@ -332,9 +190,9 @@ function displayScore(from, to) {
         cells[1] = document.createElement('td');
         cells[2] = document.createElement('td');
         cells[3] = document.createElement('td');
-        cells[0].textContent = atom_list[allCorrect[r]-1][from];
-        cells[1].textContent = atom_list[allCorrect[r]-1][to];
-        cells[2].textContent = atom_list[userCorrect[r]-1][to];
+        cells[0].textContent = elements_list[allCorrect[r]-1][from];
+        cells[1].textContent = elements_list[allCorrect[r]-1][to];
+        cells[2].textContent = elements_list[userCorrect[r]-1][to];
         cells[3].textContent = score[r].toString();
 
         if (score[r] == false) {

@@ -12,67 +12,42 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="bulma-extensions/bulma-switch/bulma-switch.min.css">
   </head>
   <body>
-    <section class="hero is-primary">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-          <nav class="navbar">
-            <div class="container">
-              <div class="navbar-brand">
-                <a class="navbar-item" href="https://creative-account.github.io/homepage/">
-                  <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
-                </a>
-                <span class="navbar-burger" data-target="navbarMenuHeroA">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </div>
-              <div id="navbarMenuHeroA" class="navbar-menu">
-                <div class="navbar-end">
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/">
-                    ホーム
-                  </a>
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/news/all.html">
-                    記事
-                  </a>
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/links/links.html">
-                    リンク
-                  </a>
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/download/software.html">
-                    ダウンロード
-                  </a>
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/tools/tools.html">
-                    ツール
-                  </a>
-                  <a class="navbar-item" href="https://creative-account.github.io/homepage/contact/contact.html">
-                    お問い合わせ
-                  </a>
-                </div>
-              </div>
+    <section class="hero is-primary has-text-centered">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container has-text-right">
+            <div class="field">
+              <label for="switchRoundedInfo" class="mr-1 is-size-5">日本語</label>
+              <input id="switchRoundedInfo" type="checkbox"  class="switch is-rounded is-info">
+              <label for="switchRoundedInfo" class="mr-3 is-size-5">English</label>
             </div>
-          </nav>
-        </div>
-      
-        <!-- Hero content: will be in the middle -->
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <p class="title">
-              元素の色々を<wbr />暗記するやつ
-            </p>
           </div>
+        </nav>
+      </div>
+      <div class="hero-body">
+        <p class="title">
+          元素学習ツール (仮)
+        </p>
+      </div>
+    </section>
+    <div class="container p-5">
+      <div class="columns">
+        <div class="column">
+          <button class="button is-medium is-fullwidth is-primary">イージー</button>
         </div>
-      
-        <!-- Hero footer: will stick at the bottom -->
-      </section>
-      <section class="section">
-        <div class="container has-text-centered" id="container">
-            <button class="button is-rounded is-primary is-large" id="start" onclick="start()">始める</button>
+        <div class="column">
+          <button class="button is-medium is-fullwidth is-primary">ノーマル</button>
         </div>
-      </section>
-      <script src="https://creative-account.github.io/homepage/script.js"></script>
-      <script src="script.js"></script>
-      <!-- © 2023 creative-account -->
+        <div class="column">
+          <button class="button is-medium is-fullwidth is-primary">ハード</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./data.js"></script>
+    <script type="module" src="script.js"></script>
+    <!-- © 2023 creative-account -->
   </body>
 </html>
