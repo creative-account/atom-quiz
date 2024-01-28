@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>元素</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-    <link rel="manifest" href="favicons/site.webmanifest">
-    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="bulma-extensions/bulma-switch/bulma-switch.min.css">
+    <link rel="stylesheet" href="./bulma-extensions/bulma-switch/bulma-switch.min.css">
   </head>
   <body>
     <section class="hero is-primary has-text-centered">
@@ -33,21 +33,23 @@
         </p>
       </div>
     </section>
-    <div class="container p-5">
+    <div class="container p-5" id="main_screen">
       <div class="columns">
         <div class="column">
-          <button class="button is-medium is-fullwidth is-primary">イージー</button>
+          <button class="button is-medium is-fullwidth is-primary" id="easy">イージー</button>
         </div>
         <div class="column">
-          <button class="button is-medium is-fullwidth is-primary">ノーマル</button>
+          <button class="button is-medium is-fullwidth is-primary" id="normal">ノーマル</button>
         </div>
         <div class="column">
-          <button class="button is-medium is-fullwidth is-primary">ハード</button>
+          <button class="button is-medium is-fullwidth is-primary" id="hard">ハード</button>
         </div>
       </div>
     </div>
     <script type="module" src="./data.js"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="./start.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./functions.js"></script>
     <!-- © 2023 creative-account -->
   </body>
 </html>
